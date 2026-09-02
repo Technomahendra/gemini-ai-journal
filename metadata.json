@@ -1,0 +1,6 @@
+{
+  "name": "Gemini AI Journal & Reflections",
+  "description": "A user-authenticated private reflection workspace and multi-turn journal powered by Gemini 3.6 Flash and Cloud Firestore.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

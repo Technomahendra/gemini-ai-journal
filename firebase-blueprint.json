@@ -1,0 +1,66 @@
+{
+  "entities": {
+    "JournalEntry": {
+      "title": "JournalEntry",
+      "description": "User journal entry containing content, reflection turns, tags, and metadata",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the journal entry"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the owner user"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the journal entry"
+        },
+        "content": {
+          "type": "string",
+          "description": "Main body text of the reflection or journal entry"
+        },
+        "mood": {
+          "type": "string",
+          "description": "Mood or emotional state associated with the entry"
+        },
+        "tags": {
+          "type": "array",
+          "description": "List of categorization tags"
+        },
+        "mode": {
+          "type": "string",
+          "description": "Reflection mode (reflection, summary, brainstorm, socratic, gratitude)"
+        },
+        "turns": {
+          "type": "array",
+          "description": "Multi-turn reflection dialogues with Gemini"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Optional AI-generated summary"
+        },
+        "isPinned": {
+          "type": "boolean",
+          "description": "Whether the entry is pinned to top of history"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Creation timestamp in milliseconds"
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Last updated timestamp in milliseconds"
+        }
+      },
+      "required": ["id", "userId", "title", "content", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/entries/{entryId}": {
+      "schema": "JournalEntry",
+      "description": "User-isolated collection storing multi-turn journal reflections and Gemini conversation turns"
+    }
+  }
+}
